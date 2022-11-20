@@ -1,0 +1,167 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ChrisSpeed = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local Top = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local WalkSpeedAmt = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local GravityAmt = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local WsEnter = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local GravEnter = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local UICorner_6 = Instance.new("UICorner")
+local player = game.Players.LocalPlayer
+local char = player.Character
+
+--Properties:
+
+ChrisSpeed.Name = "ChrisSpeed"
+ChrisSpeed.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ChrisSpeed.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = ChrisSpeed
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Background.Position = UDim2.new(0.375569046, 0, 0.400326818, 0)
+Background.Size = UDim2.new(0.247951463, 0, 0.302614361, 0)
+
+Top.Name = "Top"
+Top.Parent = Background
+Top.BackgroundColor3 = Color3.fromRGB(0, 132, 255)
+Top.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Top.Size = UDim2.new(1, 0, 0.126997828, 0)
+
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Top
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(1, 0, 1, 0)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Chris's Misc Hub"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(97, 221, 255)), ColorSequenceKeypoint.new(0.12, Color3.fromRGB(101, 222, 255)), ColorSequenceKeypoint.new(0.33, Color3.fromRGB(117, 225, 255)), ColorSequenceKeypoint.new(0.46, Color3.fromRGB(134, 229, 255)), ColorSequenceKeypoint.new(0.66, Color3.fromRGB(158, 234, 255)), ColorSequenceKeypoint.new(0.81, Color3.fromRGB(176, 238, 255)), ColorSequenceKeypoint.new(0.91, Color3.fromRGB(193, 241, 255)), ColorSequenceKeypoint.new(0.99, Color3.fromRGB(202, 243, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Background
+
+WalkSpeedAmt.Name = "WalkSpeedAmt"
+WalkSpeedAmt.Parent = Background
+WalkSpeedAmt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WalkSpeedAmt.Position = UDim2.new(0.152998775, 0, 0.345572323, 0)
+WalkSpeedAmt.Size = UDim2.new(0.401958466, 0, 0.153995708, 0)
+WalkSpeedAmt.Font = Enum.Font.SourceSansBold
+WalkSpeedAmt.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeedAmt.PlaceholderText = "WalkSpeed"
+WalkSpeedAmt.Text = ""
+WalkSpeedAmt.TextColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeedAmt.TextSize = 20.000
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = WalkSpeedAmt
+
+GravityAmt.Name = "GravityAmt"
+GravityAmt.Parent = Background
+GravityAmt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GravityAmt.Position = UDim2.new(0.152998775, 0, 0.642548561, 0)
+GravityAmt.Size = UDim2.new(0.401958466, 0, 0.153995708, 0)
+GravityAmt.Font = Enum.Font.SourceSansBold
+GravityAmt.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+GravityAmt.PlaceholderText = "Gravity"
+GravityAmt.Text = ""
+GravityAmt.TextColor3 = Color3.fromRGB(0, 0, 0)
+GravityAmt.TextSize = 20.000
+
+UICorner_3.CornerRadius = UDim.new(0, 5)
+UICorner_3.Parent = GravityAmt
+
+WsEnter.Name = "WsEnter"
+WsEnter.Parent = Background
+WsEnter.BackgroundColor3 = Color3.fromRGB(0, 132, 255)
+WsEnter.Position = UDim2.new(0.633414865, 0, 0.356371462, 0)
+WsEnter.Size = UDim2.new(0.216279104, 0, 0.126997858, 0)
+WsEnter.Font = Enum.Font.SourceSansBold
+WsEnter.Text = "Set WalkSpeed"
+WsEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
+WsEnter.TextSize = 14.000
+WsEnter.TextScaled = true
+WsEnter.MouseButton1Click:Connect(function()
+	char.Humanoid.WalkSpeed = WalkSpeedAmt.Text
+end)
+
+UICorner_4.CornerRadius = UDim.new(0, 5)
+UICorner_4.Parent = WsEnter
+
+GravEnter.Name = "GravEnter"
+GravEnter.Parent = Background
+GravEnter.BackgroundColor3 = Color3.fromRGB(0, 132, 255)
+GravEnter.Position = UDim2.new(0.633414865, 0, 0.653347731, 0)
+GravEnter.Size = UDim2.new(0.216279104, 0, 0.126997858, 0)
+GravEnter.Font = Enum.Font.SourceSansBold
+GravEnter.Text = "Set Gravity"
+GravEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
+GravEnter.TextScaled = true
+GravEnter.TextSize = 14.000
+GravEnter.TextWrapped = true
+GravEnter.MouseButton1Click:Connect(function()
+	game.Workspace.Gravity = GravityAmt.Text
+end)
+
+UICorner_5.CornerRadius = UDim.new(0, 5)
+UICorner_5.Parent = GravEnter
+
+UICorner_6.CornerRadius = UDim.new(0, 5)
+UICorner_6.Parent = Background
+
+local UIS = game:GetService("UserInputService")
+
+local draggableFrame = Background
+
+local IsDragging = false 	--checks if the player is dragging the frame
+local dragInput				--input variable which we will use later
+local StartingPoint
+local oldPos				--Old position from the frame
+
+local function update(input)
+	local delta = input.Position - StartingPoint
+	draggableFrame.Position = UDim2.new(oldPos.X.Scale, oldPos.X.Offset + delta.X, oldPos.Y.Scale, oldPos.Y.Offset + delta.Y)
+end
+
+draggableFrame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		IsDragging = true
+		StartingPoint = input.Position
+		oldPos = draggableFrame.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				IsDragging = false
+			end
+		end)
+	end
+end)
+
+draggableFrame.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and IsDragging then
+		update(input)
+	end
+end)
